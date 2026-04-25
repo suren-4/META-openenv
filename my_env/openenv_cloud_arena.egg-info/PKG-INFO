@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: openenv-cloud-arena
+Version: 0.1.0
+Summary: Cloud Resource Negotiation Arena — Multi-Agent OpenEnv Environment
+Requires-Python: >=3.10
+Requires-Dist: openenv-core[core]>=0.2.2
+Requires-Dist: numpy>=1.24.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Provides-Extra: training
+Requires-Dist: trl>=0.12.0; extra == "training"
+Requires-Dist: transformers>=4.40.0; extra == "training"
+Requires-Dist: torch>=2.0.0; extra == "training"
+Provides-Extra: dashboard
+Requires-Dist: plotly>=5.18.0; extra == "dashboard"
+Requires-Dist: matplotlib>=3.8.0; extra == "dashboard"

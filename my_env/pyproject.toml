@@ -1,0 +1,52 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+#
+# This source code is licensed under the BSD-style license found in the
+# LICENSE file in the root directory of this source tree.
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openenv-cloud-arena"
+version = "0.1.0"
+description = "Cloud Resource Negotiation Arena — Multi-Agent OpenEnv Environment"
+requires-python = ">=3.10"
+dependencies = [
+    # Core OpenEnv runtime
+    "openenv-core[core]>=0.2.2",
+    # Environment-specific dependencies
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+]
+training = [
+    "trl>=0.12.0",
+    "transformers>=4.40.0",
+    "torch>=2.0.0",
+]
+dashboard = [
+    "plotly>=5.18.0",
+    "matplotlib>=3.8.0",
+]
+
+[project.scripts]
+server = "my_env.server.app:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = [
+    "my_env",
+    "my_env.server",
+    "my_env.agents",
+    "my_env.learning",
+    "my_env.training",
+    "my_env.metrics",
+    "my_env.scenarios",
+]
+package-dir = { "my_env" = ".", "my_env.server" = "server", "my_env.agents" = "agents", "my_env.learning" = "learning", "my_env.training" = "training", "my_env.metrics" = "metrics", "my_env.scenarios" = "scenarios" }
